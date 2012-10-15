@@ -1,0 +1,31 @@
+<% flash.now[:error] = "CAS URL #{l("activerecord.errors.messages.blank")}" if @settings['cas_enabled'] && @settings['cas_server'].blank? %>
+<fieldset>
+<legend>CAS2 Plugin</legend>
+<p>
+  <label><%= l(:label_cas_enabled) %>:</label>
+  <%= check_box_tag 'settings[cas_enabled]', @settings['cas_enabled'], @settings['cas_enabled'] %>
+</p>
+<p>
+  <label><%= l(:label_cas_server) %><span class="required"> *</span> :</label>
+  <%= text_field_tag 'settings[cas_server]', @settings['cas_server'] %>
+  <br />
+  <em><%= l(:label_example) %>: http://cas.example.com</em>
+</p>
+<p>
+  <label><%= l(:label_cas_service_validate_url) %> :</label>
+  <%= text_field_tag 'settings[cas_service_validate_url]', @settings['cas_service_validate_url'] %>
+  <br />
+  <em><%= l(:label_example) %>: http://cas.example.net/serviceValidate</em>
+</p>
+<p>
+  <label><%= l(:label_login_page_text) %> :</label>
+  <%= text_field_tag 'settings[label_login_with_cas]', @settings['label_login_with_cas'] %>
+</p>
+
+<p>
+  <label><%= l(:label_cas_onthefly_register) %>:</label>
+  <%= check_box_tag 'settings[cas_onthefly_register]', @settings['cas_onthefly_register'], @settings['cas_onthefly_register'] %>
+</p>
+
+</fieldset>
+
