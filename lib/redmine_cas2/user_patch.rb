@@ -14,7 +14,7 @@ module Redmine::CAS2
   
     module InstanceMethods
       def change_password_allowed_with_cas?
-        (Redmine::CAS2.enabled? && auth_source_id = "CAS") ? false : change_password_allowed_without_cas?
+        (Redmine::CAS2.enabled? && auth_source_id == "CAS") ? false : change_password_allowed_without_cas?
       end
     end
   end
